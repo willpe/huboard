@@ -86,7 +86,7 @@ define(["../collections/issues",
 
            _.each(rest, function (label){
                var column = new columnView({column: label, user:self.user,repo:self.repo});
-               var markup = $(column.render().el).css({width:260 + "px"});
+               var markup = $(column.render().el);
                $(board).append(markup);
            });
 
@@ -107,8 +107,8 @@ define(["../collections/issues",
            this.resizeColumns();
         },
         resizeColumns : function () {
-           var tallest = calculateTallest();
-           $("ul","#main-stage").css("min-height",tallest);
+           //var tallest = calculateTallest();
+           //$("ul","#main-stage").css("min-height",tallest);
         },
         toggleDrawer : function (ev) {
 

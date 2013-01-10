@@ -74,21 +74,6 @@
 }
 
 
-.backlog { 
-  white-space: nowrap;
-  overflow-x: auto;
-  .column {
-    float: none;
-    display: inline-block;
-  }
-}
-.sidebar {
-  .backlog {
-    .column {
-      width: 209px;
-    }
-  }
-}
 
 .column h3 {
   line-height: 20px;
@@ -107,13 +92,6 @@
 .column ul {
   margin:0;
   padding: 0;
-}
-.backlog {
-    .dim {
-      opacity: 0.6;
-    }
-    .active {
-    }
 }
 .board {
     .dim {

@@ -1,0 +1,34 @@
+.backlog { 
+  .column {
+    float: none;
+    display: inline-block;
+    width: 100%;
+    ul {
+      white-space: nowrap;
+      overflow-x: auto;
+      li {
+        display: inline-block;
+        width: 260px;
+        margin-right: 20px;
+        &:last-child {
+          margin-right: 0px;
+
+        }
+      }
+
+    }
+  }
+  .dim {
+    opacity: 0.6;
+  }
+  .active {
+  }
+}
+.sidebar {
+  .backlog {
+    .column {
+      width: 209px;
+    }
+  }
+}
+
