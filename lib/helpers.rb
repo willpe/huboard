@@ -10,7 +10,14 @@ class Huboard
       def self.extended(klass)
         klass.class_eval <<-RUBY, __FILE__, __LINE__ + 1
 
+            configure :development do 
+              require "sinatra/reloader"
+              register Sinatra::Reloader
+            end
+
             enable :sessions
+
+
             if File.exists? "#{File.dirname(__FILE__)}/../.settings"
               puts "settings file"
               token_file =  File.new("#{File.dirname(__FILE__)}/../.settings")
