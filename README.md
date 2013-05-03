@@ -77,9 +77,16 @@ labels **name and color** must match in order to work.
 Go to https://github.com/settings/applications and register your
 application to get the application keys needed for OAuth.
 
-- URL: Pow: `http://huboard.dev`, Rack: `http://localhost:9292`
-- Callback: Pow: `http://huboard.dev/auth/github/callback`, Rack:
-  `http://localhost:9292/auth/github/callback`
+Using pow:
+-------------
+- URL: Pow: `http://huboard.dev`
+- Callback: Pow: `http://huboard.dev/auth/github/callback`
+  
+
+Using thin (windows)
+-------------------
+- URL:  `http://localhost:9292`
+- Callback: `http://localhost:9292/auth/github/callback`
 
 ## Configure Your App
 
@@ -116,6 +123,10 @@ Edit `.rvmrc` to specify your ruby version/gemset
 or
 
 `bundle exec rackup config.ru`
+
+or 
+
+`bundle exec thin start -p 9292`
 
 # Deploy To Heroku
 
