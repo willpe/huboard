@@ -117,7 +117,6 @@ class Huboard
       end
     end
 
-    helpers Sinatra::ContentFor
 
   end
 end
