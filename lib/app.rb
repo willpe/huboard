@@ -7,18 +7,21 @@ require_relative "helpers"
 
 class Huboard
   class App < Sinatra::Base
-    register Sinatra::Auth::Github
+    register Huboard::OAuth
+    #register Sinatra::Auth::Github
     register Huboard::Common
 
     extend Huboard::Common::Settings
 
-    PUBLIC_URLS = ['/', '/logout','/webhook']
+    PUBLIC_URLS = ['/','/login', '/login/public', "/login/private" , '/logout','/webhook']
     before do
       protected! unless PUBLIC_URLS.include? request.path_info
     end
 
     helpers do
       def protected! 
+        puts "protected"
+        puts warden
         return current_user if authenticated?
         authenticate! 
         #HAX! TODO remove
@@ -30,6 +33,16 @@ class Huboard
     end
 
     get '/login' do
+      erb :login, :layout => :marketing
+    end
+
+    
+    get '/login/public' do
+      protected!
+      redirect '/'
+    end
+
+    get '/login/private' do
       protected!
       redirect '/'
     end

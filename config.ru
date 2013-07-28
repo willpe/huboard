@@ -5,6 +5,7 @@ require 'sinatra_auth_github'
 
 Bundler.require
 
+require './lib/oauth.rb'
 require './lib/app.rb'
 require './lib/api.rb'
 require './lib/github.rb'
