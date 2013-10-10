@@ -28,6 +28,10 @@ class HuboardApplication < Sinatra::Base
   enable  :sessions
   enable :raise_exceptions
 
+  ENV['GITHUB_OAUTH_DOMAIN'] = 'https://github.company.com/api/v3/'
+  ENV['OCTOKIT_API_ENDPOINT'] = 'https://github.company.com/api/v3/'
+  ENV['GITHUB_OAUTH_API_DOMAIN'] = 'https://github.company.com/api/v3/'
+
   if File.exists? "#{File.dirname(__FILE__)}/../.settings"
     token_file =  File.new("#{File.dirname(__FILE__)}/../.settings")
     # TODO: read this from a yaml

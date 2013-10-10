@@ -69,6 +69,10 @@ class Huboard
         huboard(token).connection
       end
 
+      def github_api_url
+        ENV['GITHUB_OAUTH_DOMAIN'] || nil
+      end
+
       def socket_backend
         return settings.socket_backend if settings.respond_to? :socket_backend
       end
