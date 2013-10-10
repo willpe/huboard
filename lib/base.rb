@@ -1,4 +1,5 @@
 require "hashie" 
+require "octokit"
 require_relative "auth/github"
 
 # stolen from http://github.com/cschneid/irclogger/blob/master/lib/partials.rb
@@ -78,12 +79,18 @@ class HuboardApplication < Sinatra::Base
     config.scope_defaults :private, :config => GITHUB_CONFIG.merge(:scope => 'repo')
   end
 
+  Octokit.configure do |c|
+    c.api_endpoint = 'https://wagit/api/v3/'
+    c.web_endpoint = 'https://wagit/'
+  end
+
   helpers do
     def warden
       env['warden']
     end
 
     def authenticate!(*args)
+      
       warden.authenticate!(*args)
     end
 
