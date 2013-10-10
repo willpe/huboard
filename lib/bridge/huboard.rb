@@ -33,7 +33,7 @@ class Huboard
     def initialize(access_token, params={})
       
       @connection_factory = ->(token = nil) {
-        options = { :access_token => token || access_token }
+        options = { :access_token => token || access_token, :api_url = 'https://wagit' }
         options = {} if(token.nil? && access_token.nil?)
         Ghee.new(options) do |conn|
           conn.use Faraday::Response::RaiseGheeError
