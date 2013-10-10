@@ -8,6 +8,12 @@ require_relative "helpers"
 
 class Huboard
   class App < HuboardApplication
+  
+    Octokit.configure do |c|
+      c.api_endpoint = 'https://wagit/api/v3/'
+      c.web_endpoint = 'https://wagit/'
+    end
+
     #register Sinatra::Auth::Github
 
     PUBLIC_URLS = ['/', '/logout','/webhook']
